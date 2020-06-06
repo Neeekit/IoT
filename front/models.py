@@ -1,7 +1,5 @@
 from app import db
 from datetime import datetime
-from flask_user import UserMixin
-import uuid
  
 class Machine(db.Model):
 	__tablename__ = 'machines'
