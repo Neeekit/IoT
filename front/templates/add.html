@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>BookShare add book</title>
+		<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css')  }} />
+	</head>
+<body>
+	<div class="page-layout">
+		<div class="title">Book Upload</div>
+		<form method="POST" enctype="multipart/form-data">
+		<p>
+		{{ form.machine_code.label }}<br>
+            	{{ form.machine_code(size=32) }}
+		</p>
+		<p>
+		{{ form.cell_number.label }}<br>
+		{{ form.cell_number(size=32) }}
+		</p>		
+		<p>Photo</p>
+		{{ form.hidden_tag() }}
+		{{ form.photo }}
+		{% for error in form.photo.errors %}
+			<span style="color: red;">{{ error }}</span>
+		{% endfor %}
+		<p> Put the book in the cell and click 'Upload' (5 seconds limit) </p>
+		{{ form.submit }}
+		</form>
+		{% if file_url %}
+		<br>
+		<img src="{{ file_url }}">
+		{% endif %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>BookShare</title>
+		<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css')  }} />
+	</head>
+<body>
+	<div class="page-layout">
+		<div><a class="add_book" href="/add">Добавить</a></div>
+		{% for machine in machines %}
+		<div class="headtitle">Adress: {{ machine.adress }}</div>
+		<div class="book-list">
+			{% for book in machine.books %}
+				<div class="book-preview"><img src={{'_uploads/photos/' + book}} style="width:100%; height: 100%;"></div>  
+			{% endfor %}
+		</div>
+        {% endfor %}
+	</div>
+
+</body>
+</html>
